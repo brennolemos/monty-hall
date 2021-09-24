@@ -16,3 +16,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --door-height: 310px;
+  --door-width: 200px;
+}
