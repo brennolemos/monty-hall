@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Door from "../components/Door";
 import { createDoors, refreshDoors } from "../functions/door";
-import DoorModel from "../model/door";
 
 export default function Home() {
   const [doors, setDoors] = useState(createDoors(3, 2));
