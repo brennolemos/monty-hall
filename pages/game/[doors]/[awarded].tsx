@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Door from "../../../tmp/Door";
+import Door from "../../../components/Door";
 import { createDoors, refreshDoors } from "../../../functions/door";
 import Link from "next/link";
 import { useRouter } from "next/router";
