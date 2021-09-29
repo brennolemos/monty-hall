@@ -9,6 +9,17 @@ import styles from "../../../styles/Game.module.css";
 export default function Game() {
   const router = useRouter();
   const [doors, setDoors] = useState([]);
+  const [isValid, setIsValid] = useState(false);
+
+  useEffect(() => {
+    const doors = +router.query.doors;
+    const awarded = +router.query.awarded;
+
+    const validDoors = doors >= 3 && doors <= 100;
+    const validAward = awarded >= 1 && awarded <= doors;
+
+    setIsValid(validDoors && validAward);
+  }, [doors]);
 
   useEffect(() => {
     const doors = +router.query.doors;
@@ -30,7 +41,9 @@ export default function Game() {
 
   return (
     <div className={styles.game}>
-      <div className={styles.doors}>{renderDoors()}</div>
+      <div className={styles.doors}>
+        {isValid ? renderDoors() : <h1>Insert valid values!</h1>}
+      </div>
       <div className={styles.buttons}>
         <Link href="/">
           <button>Reset Game</button>
