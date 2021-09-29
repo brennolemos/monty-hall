@@ -1,8 +1,11 @@
 import { useState } from "react";
 import Door from "../tmp/Door";
 import { createDoors, refreshDoors } from "../functions/door";
+import Link from "next/link";
 
-export default function Home() {
+import styles from "../styles/Game.module.css";
+
+export default function Game() {
   const [doors, setDoors] = useState(createDoors(3, 2));
 
   function renderDoors() {
@@ -17,5 +20,14 @@ export default function Home() {
     });
   }
 
-  return <div style={{ display: "flex" }}>{renderDoors()}</div>;
+  return (
+    <div className={styles.game}>
+      <div className={styles.doors}>{renderDoors()}</div>
+      <div className={styles.buttons}>
+        <Link href="/">
+          <button>Reset Game</button>
+        </Link>
+      </div>
+    </div>
+  );
 }
